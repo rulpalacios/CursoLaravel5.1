@@ -1,12 +1,12 @@
 @extends('layouts.admin')
-<?php $message=Session::get('message')?>
 
-@if($message == 'store')
+@if(Session::has('message'))
 <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  Usuario creado exitosamente
+  {{Session::get('message')}}
 </div>
 @endif
+
 	@section('content')
 	<table class="table">
 		<thead>
@@ -18,7 +18,9 @@
 			<tbody>
 				<td>{{$user->name}}</td>
 				<td>{{$user->email}}</td>
-				<td></td>
+				<td>
+					{!!link_to_route('usuario.edit', $title = 'Editar', $parameters = $user, $attributes = ['class'=>'btn btn-primary'])!!}
+				</td>
 			</tbody>
 		@endforeach
 	</table>
