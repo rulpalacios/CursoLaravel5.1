@@ -4,6 +4,8 @@ namespace Cinema\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Cinema\Http\Requests;
+use Cinema\Http\Requests\UserCreateRequest;
+use Cinema\Http\Requests\UserUpdateRequest;
 use Cinema\Http\Controllers\Controller;
 use Cinema\User;
 use Session;
@@ -37,7 +39,7 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserCreateRequest $request)
     {
         User::create([
             'name' => $request['name'],
@@ -78,7 +80,7 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
         $user = User::find($id);
         $user->fill($request->all());
