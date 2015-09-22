@@ -19,4 +19,8 @@ class FrontController extends Controller
    public function reviews(){
         return view('reviews');
    }
+
+   public function admin(){
+        return view('admin.index');
+   }
 }
