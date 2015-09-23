@@ -99,10 +99,13 @@
     
 
     {!!Html::script('js/jquery.min.js')!!}
-    {!!Html::script('js/script.js')!!}
     {!!Html::script('js/bootstrap.min.js')!!}
     {!!Html::script('js/metisMenu.min.js')!!}
     {!!Html::script('js/sb-admin-2.js')!!}
+
+    @section('scripts')
+
+    @show
 
 </body>
 
