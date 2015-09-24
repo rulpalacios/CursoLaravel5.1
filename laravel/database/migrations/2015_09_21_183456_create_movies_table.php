@@ -15,6 +15,10 @@ class CreateMoviesTable extends Migration
         Schema::create('movies', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            /*
+            | En el video tutorial olvide agregar el Path de las imagenes xD
+            */
+            $table->string('path');
             $table->string('cast');
             $table->string('direction');
             $table->string('duration');
