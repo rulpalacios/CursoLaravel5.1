@@ -18,6 +18,10 @@ Curso de Laravel 5.1 donde aprenderemos a crear una aplicación web dinámica :D
 
         $ php artisan migrate
 
++ Ejecutamos los seeders.
+
+        $ php artisan db:seed
+
 + Por ultimo solo debemos generar una key para nuestra app.
 
          $ php artisan key:generate
