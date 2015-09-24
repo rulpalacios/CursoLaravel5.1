@@ -1,5 +1,6 @@
 @extends('layouts.principal')
 	@section('content')
+	@include('alerts.success')
 		<div class="contact-content">
 			<div class="top-header span_top">
 				<div class="logo">
@@ -19,18 +20,16 @@
 		 <h3 class="head">CONTACT</h3>
 		 <p>WE'RE ALWAYS HERE TO HELP YOU</p>
 		 <div class="contact-form">
-			 <form>
-				 <div class="col-md-6 contact-left">
-					  <input type="text" placeholder="Name" required/>
-					  <input type="text" placeholder="E-mail" required/>
-					  <input type="text" placeholder="Phone" required/>
-				  </div>
-				  <div class="col-md-6 contact-right">
-					 <textarea placeholder="Message"></textarea>
-					 <input type="submit" value="SEND"/>
-				 </div>
-				 <div class="clearfix"></div>
-			 </form>
+			 {!!Form::open(['route'=>'mail.store','method'=>'POST'])!!}
+					 	<div class="col-md-6 contact-left">
+					 		{!!Form::text('name',null,['placeholder' => 'Nombre'])!!}
+					 		{!!Form::text('email',null,['placeholder' => 'Email'])!!}
+						</div>
+						<div class="col-md-6 contact-right">
+							{!!Form::textarea('mensaje',null,['placeholder' => 'Mensaje'])!!}
+						</div>
+						{!!Form::submit('SEND')!!}
+					 {!!Form::close()!!}
 	     </div>
 </div>
 	@endsection	
